@@ -1,27 +1,27 @@
 
 <?php
-include "../../connection.php";
-$id_user             = isset($_POST['id_user']) ? $_POST['id_user'] : '';
+include "../../controller/connection.php";
+$id_user             = isset($_POST['id_user']) ? $_POST['id_user'] : NULL;
 $username             = isset($_POST['username']) ? $_POST['username'] : '';
 $password         = isset($_POST['password']) ? $_POST['password'] : '';
 $level             = isset($_POST['level']) ? $_POST['level'] : '';
 
 if ($id_user != NULL) {
-    $query = "UPDATE tb_user SET username='$username',
+	$query = "UPDATE tb_user SET username='$username',
 				password=md5('$password'),
 				level='$level'
 				WHERE id_user='$id_user'";
-    mysqli_query($koneksi, $query);
-	header ('location:http://localhost/toko_sepatu/view/admin/index.php?act=shmembers');
-    echo 'data berhasil diubah';
-}else{
-    $query = "INSERT INTO tb_user SET username='$username',
+	mysqli_query($koneksi, $query);
+	header('location:http://localhost/shoe_store/view/admin/index.php?act=shmembers');
+	echo 'data berhasil diubah';
+} else {
+	$query = "INSERT INTO tb_user SET username='$username',
 				password=md5('$password'),
 				level='$level'
 				";
-    mysqli_query($koneksi, $query);
-	header ('location:http://localhost/toko_sepatu/view/admin/index.php?act=shmembers');
-    echo 'data berhasil disimpan';
+	mysqli_query($koneksi, $query);
+	header('location:http://localhost/shoe_store/view/admin/index.php?act=shmembers');
+	echo 'data berhasil disimpan';
 }
 echo '<br> Terima Kasih';
 ?>

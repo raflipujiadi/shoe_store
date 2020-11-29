@@ -1,5 +1,5 @@
 <?php
-$menu 			= isset($_GET['menu']) ? $_GET['menu'] : '';
+$menu             = isset($_GET['menu']) ? $_GET['menu'] : '';
 ?>
 
 
@@ -54,25 +54,22 @@ $menu 			= isset($_GET['menu']) ? $_GET['menu'] : '';
         </div>
         <div class="column is-9">
             <?php
-			
-		include	'../../controller/koneksi.php';
-		$lvl = $_SESSION['level'];
-		$act       = isset($_GET['act']) ? $_GET['act'] : '';
-		$query = "SELECT * FROM tb_user";
-		$ambil_data = mysqli_query($koneksi, $query);
-		$getdata = mysqli_fetch_assoc($ambil_data);
-		if($act=='shmembers'){
-			include 'shmembers.php';
-		}
-		if($act == 'form'){
-			include 'form.php';
-		}
-?>
 
-			
-				</div>
+            include    '../../controller/connection.php';
+            $lvl = $_SESSION['level'];
+            $act       = isset($_GET['act']) ? $_GET['act'] : '';
+            $query = "SELECT * FROM tb_user";
+            $ambil_data = mysqli_query($koneksi, $query);
+            $getdata = mysqli_fetch_assoc($ambil_data);
+            if ($act == 'shmembers') {
+                include 'shmembers.php';
+            }
+            if ($act == 'form') {
+                include 'form.php';
+            }
+            ?>
+
+
+        </div>
     </div>
 </div>
-
-
-

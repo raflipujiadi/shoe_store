@@ -2,54 +2,65 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Register - Brand</title>
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css?h=c70c68200e0def353bbd6e113a1d4e10">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css?h=b077f3d66f4dd45a76529f02462151f3">
+	<title>Sign up</title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/signin.css">
+	<script type="text/javascript" src="../assets/js/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="../assets/js/bootstrap.js"></script>
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+
+		body {
+			background: url(pexels-photo-132957.jpeg);
+			background-repeat: no-repeat;
+			background-size: cover;
+
+		}
+	</style>
 </head>
 
-<body class="bg-gradient-primary">
-    <div class="container">
-        <div class="card shadow-lg o-hidden border-0 my-5">
-            <div class="card-body p-0">
-                <div class="row">
-                    <div class="col-lg-5 d-none d-lg-flex">
-                        <div class="flex-grow-1 bg-register-image" style="background-image: url(&quot;/assets/img/dogs/image2.jpeg?h=a0a7d00bcd8e4f84f4d8ce636a8f94d4&quot;);"></div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h4 class="text-dark mb-4">Create an Account!</h4>
-                            </div>
-                            <form class="user" action="../controller/register.php">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="username" placeholder="User Name" name="username"></div>
-                                </div>
-                                <div class="form-group"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address" name="email"></div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="examplePasswordInput" placeholder="Password" name="password"></div>
-                                    <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="password" placeholder="Repeat Password" name="password_repeat"></div>
-                                </div><button class="btn btn-primary btn-block text-white btn-user" type="submit">Register Account</button>
-                                <hr><a class="btn btn-primary btn-block text-white btn-google btn-user" role="button"><i class="fab fa-google"></i>&nbsp; Register with Google</a><a class="btn btn-primary btn-block text-white btn-facebook btn-user" role="button"><i class="fab fa-facebook-f"></i>&nbsp; Register with Facebook</a>
-                                <hr>
-                            </form>
-                            <div class="text-center"><a class="small" href="forgot-password.php">Forgot Password?</a></div>
-                            <div class="text-center"><a class="small" href="login.php">Already have an account? Login!</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="/assets/js/script.min.js?h=b86d882c5039df370319ea6ca19e5689"></script>
+<body class="text-center">
+	<div class="form-signin">
+
+		<form class="" action="../controller/signup.php" method="POST">
+			<h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+			<?php
+			if (isset($_GET['pesan'])) {
+				if ($_GET['pesan'] == "gagal") {
+					echo "Login gagal! username dan password salah! <hr>";
+				} else if ($_GET['pesan'] == "logout") {
+					echo "Anda telah berhasil logout <hr>";
+				} else if ($_GET['pesan'] == "belum_login") {
+					echo "Username atau password yang Anda masukkan salah <hr>";
+				}
+			}
+			?>
+			<label class="sr-only">Username</label>
+			<input type="text" name="username" id="username" class="form-control" placeholder="Username" required="" autofocus="">
+			<label class="sr-only">Password</label>
+			<input type="password" name="password" id="passwordd" class="form-control" placeholder="Password" required="">
+			<div class="checkbox mb-3">
+				<!-- <label>
+				<input type="checkbox" value="remember-me"> Remember me
+			</label> -->
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" value="LOGIN" type="submit">Sign up</button>
+			<p class="mt-5 mb-3 text-muted">2017-2019</p>
+		</form>
+	</div>
 </body>
 
 </html>
