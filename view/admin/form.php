@@ -1,7 +1,8 @@
 <?php
 include '../../controller/connection.php';
 $id_user = isset($_GET['id_user']) ? $_GET['id_user'] : '';
-$query = "SELECT * from tb_user WHERE id_user='$id_user'";
+$username = isset($_GET['username']) ? $_GET['username'] : '';
+$query = "SELECT * from tb_user WHERE id_user='$id_user' OR username='$username'";
 $ambil_data = mysqli_query($koneksi, $query);
 $getdata = mysqli_fetch_assoc($ambil_data);
 if (!$id_user) {
