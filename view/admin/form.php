@@ -2,7 +2,7 @@
 include '../../controller/connection.php';
 $id_user = isset($_GET['id_user']) ? $_GET['id_user'] : '';
 $username = isset($_GET['username']) ? $_GET['username'] : '';
-$query = "SELECT * from tb_user WHERE id_user='$id_user' OR username='$username'";
+$query = "SELECT * from tb_user WHERE id_user='$id_user' AND username='$username'";
 $ambil_data = mysqli_query($koneksi, $query);
 $getdata = mysqli_fetch_assoc($ambil_data);
 if (!$id_user) {
@@ -28,6 +28,7 @@ if (!$id_user) {
       <option value="admin" <?php if (isset($getdata) && $getdata['level'] == "admin") echo 'selected' ?>>admin</option>
       <option value="managers" <?php if (isset($getdata) && $getdata['level'] == "managers") echo 'selected' ?>>managers</option>
       <option value="karyawan" <?php if (isset($getdata) && $getdata['level'] == "karyawan") echo 'selected' ?>>karyawan</option>
+      <!-- fungsi isset akan mengembalikan nilai true jika variabel sudah didefinisikan dengan nilai tertentu dan false jika belum didefiniskan-->
     </select>
   </div>
 

@@ -31,7 +31,7 @@ include("../templates/navbar.php");
     function loadData() {
         $.ajax({ //create an ajax request to display.php
             method: "post",
-            url: "http://localhost/aweb/model/dataBarang.php",
+            url: "http://localhost/shoe_store/model/dataBarang.php",
             success: function(data) {
                 $("#dataBarang").html(data);
             }

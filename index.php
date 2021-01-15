@@ -15,13 +15,16 @@ $ambil_data = mysqli_query($koneksi, $query);
 
 <body>
 	<?php
+	session_start();
 	if (isset($hal)) {
 		//jika $hal ada isinya
 		include $hal . ".php";
 	} else {
 		include "depan.php";
 	}
+
 	?>
+
 </body>
 
 <!-- Footer -->
@@ -33,7 +36,31 @@ $ambil_data = mysqli_query($koneksi, $query);
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$(".grid-style").load("model/cart.php");
+		$(".grid-style").load("model/ambildatabarang.php");
+		$(".button").click(function() {
+			$id = $(this).data('id');
+			$name = $('#name' + id).val();
+			$price = $('#price' + id).val();
+			$quantity = 1;
+
+			$.ajax({
+				url: 'model/cart.php',
+				method: 'POST',
+				dataType: 'json',
+				data: {
+					cart_id: id,
+					cart_name: name,
+					cart_price: price,
+					cart_quantity: quantity,
+					action: 'add'
+				},
+				success: function(data) {
+					alert(data);
+				}
+			}).fail(function(xhr, textStatus, errorThrown) {
+				alert(xhr.responseText);
+			});
+		})
 	});
 </script>
 <script src="assets/js/jquery.min.js"></script>
