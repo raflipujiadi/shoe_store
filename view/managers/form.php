@@ -34,7 +34,7 @@ if (!$id_barang) {
         </span>
         <label for="brks" class="file-label">
           Choose a file…
-          <input class="file-input" id="brks" type="file" name="brks" value="<?php if (isset($id_barang)) echo $getdata['img']; ?>">
+          <input class="file-input" id="brks" type="file" name="brks" accept="image/*" value="<?php if (isset($id_barang)) echo $getdata['img']; ?>">
         </label>
       </span>
     </label>
